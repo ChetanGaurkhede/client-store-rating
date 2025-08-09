@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { apiService } from "../../services/apiServices";
-import {
-  Plus,
-  ArrowUpDown,
-  User,
-} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Plus, ArrowUpDown, User } from "lucide-react";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import CreateUserModal from "./CreateUserModel";
 
@@ -23,6 +20,8 @@ const UserManagement = () => {
     field: "",
     direction: "asc",
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUsers();
@@ -298,7 +297,7 @@ const UserManagement = () => {
           onClose={() => setShowCreateModal(false)}
           onSuccess={() => {
             toast.success("User created successfully!");
-            setShowCreateUser(false);
+            setShowCreateModal(false);
             navigate("/dashboard");
           }}
         />

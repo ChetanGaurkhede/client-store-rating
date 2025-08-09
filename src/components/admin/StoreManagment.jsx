@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { apiService } from "../../services/apiServices";
 import { Plus, Search, Filter, ArrowUpDown, Store, Star } from "lucide-react";
 import LoadingSpinner from "../layout/LoadingSpinner";
 import CreateStoreModal from "./CreateStoreModel";
+import { useNavigate } from "react-router-dom";
 
 const StoreManagement = () => {
   const [stores, setStores] = useState([]);
@@ -19,6 +19,8 @@ const StoreManagement = () => {
     field: "",
     direction: "asc",
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchStores();
