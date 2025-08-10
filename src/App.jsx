@@ -10,6 +10,7 @@ import StoreOwnerDashboard from './components/StoreOwner/StoreOwnerDashboard'
 import ProtectedRoute from './components/layout/ProtectedRoute'
 import Navbar from './components/layout/Navbar'
 import LoadingSpinner from './components/layout/LoadingSpinner'
+ 
 
 const AppRoutes = () => {
   const { user, loading } = useAuth()
